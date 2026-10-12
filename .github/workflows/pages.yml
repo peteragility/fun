@@ -24,6 +24,10 @@ jobs:
           node-version: '24'
       - name: Build personal shelf
         run: node scripts/build.mjs
+      - name: Check links, inline scripts and sharing metadata
+        run: node scripts/check-site.mjs dist
+      - name: Check mobile navigation and reading regressions
+        run: node scripts/browser-smoke.mjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload static pages

@@ -1,8 +1,12 @@
-import {cpSync,mkdirSync,copyFileSync} from 'node:fs';
+import {cpSync,mkdirSync,copyFileSync,rmSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+rmSync(path.join(root,'dist'),{recursive:true,force:true});
 mkdirSync(path.join(root,'dist'),{recursive:true});
-for(const name of ['tongjian','penang-trip']) cpSync(path.join(root,name),path.join(root,'dist',name),{recursive:true});
+for(const name of ['penang-trip','assets']) cpSync(path.join(root,name),path.join(root,'dist',name),{recursive:true});
+execFileSync('python3',[path.join(root,'scripts/build-tongjian.py')],{stdio:'inherit'});
+for(const name of ['reader.css','reader.js']) copyFileSync(path.join(root,'tongjian',name),path.join(root,'dist/tongjian',name));
 copyFileSync(path.join(root,'index.html'),path.join(root,'dist/index.html'));
-console.log('Built two personal pages.');
+console.log('Built Fun, the Penang notebook and the 294-volume reader.');

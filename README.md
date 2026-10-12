@@ -10,7 +10,23 @@ The repository and GitHub Pages website are public. Visitors do not need to log 
 
 ## Publishing
 
-Edit `index.html`, `tongjian/index.html` or `penang-trip/index.html`, then commit and push to `main`. GitHub Actions runs `node scripts/build.mjs` and deploys only `dist/` to Pages. Repository metadata and scripts are excluded from the website artifact.
+Edit `index.html`, `penang-trip/index.html`, the reader assets in `tongjian/`, or `scripts/build-tongjian.py`, then commit and push to `main`. GitHub Actions builds, validates links and scripts, runs mobile browser regressions, and deploys only `dist/` to Pages. Repository metadata, scripts and the original reading source are excluded from the website artifact.
+
+## Reading source and generated pages
+
+`data/tongjian-source.html` preserves the original 294-volume source. `scripts/build-tongjian.py` generates a lightweight catalogue and 294 independent volume pages. It removes the 146 imported Wikisource navigation/footer remnants while retaining historical text and each volume's source link. The importer accepts only the expected text markup and source-link host; unexpected markup fails the build.
+
+The reader supports dynasty/volume filtering, previous/next navigation, volume selection, bounded font sizes and browser-local resume links. Storage failures leave reading and navigation usable. Old `tongjian/#j185` links redirect to the matching volume, and dynasty anchors such as `#sec-185` remain available in the catalogue.
+
+```sh
+node scripts/build.mjs
+node scripts/check-site.mjs dist
+node scripts/browser-smoke.mjs
+```
+
+The build clears `dist/` first so deleted files cannot linger. Browser checks require Google Chrome and use a temporary profile. Set `CHROME_PATH` if needed. No package installation is required.
+
+`preview-cards.json` supplies the committed sharing-image text. Run `node scripts/preview-images.mjs` after editing it, then rebuild. The images and page metadata use the public GitHub Pages addresses.
 
 ## Local viewing
 

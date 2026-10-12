@@ -1,0 +1,32 @@
+[
+  {
+    "name": "fun-preview",
+    "title": "Good books. Great detours.",
+    "subtitle": "Peter’s personal collection of reading and travel",
+    "brand": "PETER CHAN / FUN",
+    "background": "#fff8eb",
+    "ink": "#29302b",
+    "accent": "#ffda70",
+    "footer": "peteragility.github.io/fun"
+  },
+  {
+    "name": "reading-preview",
+    "title": "資治通鑑 · 294 volumes",
+    "subtitle": "Chinese history, one volume at a time",
+    "brand": "PETER CHAN / FUN",
+    "background": "#fff8eb",
+    "ink": "#29302b",
+    "accent": "#ffda70",
+    "footer": "peteragility.github.io/fun"
+  },
+  {
+    "name": "penang-preview",
+    "title": "Penang family adventure",
+    "subtitle": "6 days / 5 nights · 5–10 August 2026",
+    "brand": "PETER CHAN / FUN",
+    "background": "#fff8eb",
+    "ink": "#29302b",
+    "accent": "#ffda70",
+    "footer": "peteragility.github.io/fun"
+  }
+]
