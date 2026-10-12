@@ -1,4 +1,77 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="index,follow"><title>Peter’s Personal Shelf</title><style>
-*{box-sizing:border-box}body{margin:0;background:#f5f0e6;color:#302b25;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}.wrap{max-width:760px;margin:8vh auto;padding:24px}small{color:#746556;text-transform:uppercase;letter-spacing:.12em}h1{font-family:Georgia,serif;font-size:clamp(32px,7vw,52px);line-height:1.15;margin:16px 0}p{color:#746556}.shelf{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}a{background:#fffaf1;border:1px solid #d9cdbb;border-radius:14px;padding:24px;text-decoration:none;color:inherit;display:block}a:hover{border-color:#8b6244}a:focus-visible{outline:3px solid #8b6244;outline-offset:4px}.icon{font-size:32px}h2{font-size:20px;margin:12px 0 6px}a p{font-size:14px;margin:0}.open{display:block;margin-top:20px;font-size:12px;color:#8b6244}@media(max-width:520px){.shelf{grid-template-columns:1fr}.wrap{margin-top:3vh}}
-</style></head><body><main class="wrap"><small>Peter Chan / Personal shelf</small><h1>Books, journeys<br>and quiet discoveries.</h1><p>A personal home for reading and family travel notes.</p><div class="shelf"><a href="tongjian/"><span class="icon" aria-hidden="true">📚</span><h2>資治通鑑</h2><p>294 volumes · a place to read history.</p><span class="open">Open reading room →</span></a><a href="penang-trip/"><span class="icon" aria-hidden="true">🌴</span><h2>Penang family trip</h2><p>Itinerary, food and places to remember.</p><span class="open">Open travel notebook →</span></a></div></main></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Peter’s personal corner of the internet: 294 volumes of Chinese history and a six-day Penang family adventure. Pick a happy detour.">
+<meta name="theme-color" content="#fff8eb">
+<title>Fun · Peter’s Personal Shelf</title>
+<style>
+:root{--paper:#fff8eb;--ink:#29302b;--muted:#606458;--line:#d5d0bd;--purple:#e4dbfa;--mint:#d9eee2;--yellow:#ffda70;--coral:#ff9879}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--paper);background-image:radial-gradient(#b6ac943b .8px,transparent .8px);background-size:18px 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}a{color:inherit}a:focus-visible,button:focus-visible{outline:3px solid #6e459e;outline-offset:5px}
+.wrap{max-width:1020px;margin:0 auto;padding:26px 28px 20px}
+.brand{display:flex;align-items:center;gap:12px;padding-bottom:17px;border-bottom:1px solid var(--line)}.wordmark{font-family:Georgia,serif;font-weight:900;font-size:36px;line-height:1;letter-spacing:-.075em;transform:rotate(-5deg)}.wordmark span{color:#c05038}.owner{font-size:11px;line-height:1.45}.owner strong{display:block;font-weight:750}.brand-note{margin-left:auto;font:11px ui-monospace,SFMono-Regular,monospace;color:var(--muted)}.brand-note::before{content:"✳ ";color:#985036}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:24px;align-items:center;padding:27px 0 23px}.eyebrow{margin:0 0 8px;font:10px ui-monospace,SFMono-Regular,monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(35px,5vw,52px);font-weight:800;line-height:1.05;letter-spacing:-.035em;margin:0}h1 .highlight{position:relative;display:inline-block;isolation:isolate}h1 .highlight::before{content:"";position:absolute;z-index:-1;inset:51% -4px 1px;background:var(--yellow);transform:rotate(-2deg);border-radius:4px}.intro{font-size:14px;color:var(--muted);margin:13px 0 0;max-width:560px}.hero-art{width:100%;height:137px;overflow:visible}.hero-art .sun{transform-box:fill-box;transform-origin:center;animation:sun-spin 40s linear infinite}@keyframes sun-spin{to{transform:rotate(360deg)}}
+.collection-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0 13px;border-top:1px solid var(--line)}.collection-label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700}.count{display:inline-grid;place-items:center;width:25px;height:25px;background:var(--ink);color:var(--paper);border-radius:50%;font:11px ui-monospace,monospace}.surprise{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:7px 12px;border:1.5px solid var(--ink);border-radius:8px;background:var(--yellow);box-shadow:2px 2px 0 var(--ink);font-size:12px;font-weight:750;cursor:pointer;transition:transform .15s,box-shadow .15s}.surprise[hidden]{display:none}.surprise:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}.surprise:active{transform:translate(2px,2px);box-shadow:none}.dice{font-size:17px;line-height:1}
+.shelf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{display:flex;flex-direction:column;min-width:0;padding:17px 20px 15px;border:1.5px solid var(--ink);border-radius:13px;background:var(--purple);box-shadow:4px 4px 0 var(--ink);text-decoration:none;transition:transform .18s,box-shadow .18s}.card.travel{background:var(--mint)}.card:hover{transform:translateY(-3px) rotate(-.4deg);box-shadow:5px 7px 0 var(--ink)}.card.travel:hover{transform:translateY(-3px) rotate(.4deg)}.card-top{display:flex;align-items:center;gap:8px;font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.065em}.card-top .number{opacity:.65}.category{border:1px solid #29302b70;padding:3px 7px;border-radius:5px;font-weight:700}.card-top .aside{margin-left:auto;color:#555b50}
+.card-body{display:grid;grid-template-columns:minmax(0,1fr) 76px;gap:12px;align-items:center;margin:10px 0 6px}h2{font-size:25px;line-height:1.2;letter-spacing:-.025em;margin:0 0 5px;font-weight:800}.reading h2{font-family:"Songti TC","Noto Serif TC",Georgia,serif;font-size:29px;letter-spacing:.035em}.subtitle{font-size:11px;color:#51564d;margin:0}.card-art{width:76px;height:70px;overflow:visible;transition:transform .2s}.card:hover .card-art{transform:rotate(5deg)}.card p.description{font-size:13px;line-height:1.55;margin:0 0 10px;color:#42493f;max-width:390px}.facts{display:grid;grid-template-columns:1fr 1fr;margin:0;border-top:1px solid #29302b30;border-bottom:1px solid #29302b30;padding:9px 0;gap:14px}.facts div+div{border-left:1px solid #29302b30;padding-left:17px}.facts dt{font-size:10px;color:#52594e;margin-bottom:2px}.facts dd{font-size:17px;letter-spacing:-.02em;font-weight:800;margin:0}.facts dd span{font-size:11px;font-weight:500;letter-spacing:0}.facts .history-range{font-size:14px;white-space:nowrap}.facts .history-range span{font-size:10px;white-space:nowrap}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.tags span{font-size:10px;background:#fff8eb80;border:1px solid #29302b24;padding:3px 6px;border-radius:4px}.card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;font-size:12px;font-weight:750}.arrow{display:grid;place-items:center;width:30px;height:30px;background:var(--paper);border:1px solid var(--ink);border-radius:50%;font-size:17px;transition:transform .18s}.card:hover .arrow{transform:rotate(-35deg)}
+footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:24px;padding-top:13px;border-top:1px solid var(--line)}footer .signoff{font-family:Georgia,serif;font-style:italic;color:#765539}
+@media(max-width:760px){.wrap{padding:22px 22px 18px}.hero{grid-template-columns:minmax(0,1fr) 140px;gap:15px}.hero-art{height:115px}.card{padding:17px 17px 15px}.card-body{grid-template-columns:minmax(0,1fr) 65px;gap:8px}.card-art{width:65px;height:75px}h2{font-size:22px}.reading h2{font-size:27px}.card-top .aside{display:none}.facts{gap:8px}.facts div+div{padding-left:10px}.facts dd{font-size:16px}}
+@media(max-width:560px){.wrap{padding:19px 17px 18px}.brand{padding-bottom:13px}.wordmark{font-size:33px}.brand-note{font-size:10px}.hero{position:relative;display:block;padding:23px 0 19px}.hero-art{position:absolute;width:72px;height:58px;right:2px;top:3px;transform:rotate(8deg)}.eyebrow{font-size:9px;letter-spacing:.08em;max-width:calc(100% - 75px)}h1{font-size:clamp(33px,7.8vw,43px);max-width:100%}.intro{font-size:13px;margin-top:11px}.shelf{grid-template-columns:1fr;gap:17px}.card{padding:16px 18px 14px}.card-body{grid-template-columns:minmax(0,1fr) 66px;margin:7px 0 5px}.card-art{width:66px;height:64px}.card-top .aside{display:block}.card p.description{margin-bottom:11px}.facts{padding:9px 0}.facts div+div{padding-left:14px}.tags{margin-top:9px}.card-foot{padding-top:11px}.collection-bar{padding:11px 0 13px}.collection-label{font-size:11px;gap:6px}.surprise{min-height:44px;padding:7px 10px;font-size:11px}.count{width:23px;height:23px}footer{margin-top:21px;font-size:10px;gap:5px}}
+@media(max-width:360px){.brand-note,.card-top .aside{display:none}.hero-art{width:62px}.facts .history-range{font-size:13px}.history-range span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.hero-art .sun{animation:none}.card,.card-art,.arrow,.surprise{transition:none}.card:hover,.card.travel:hover,.card:hover .card-art,.card:hover .arrow,.surprise:hover,.surprise:active{transform:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="brand"><div class="wordmark" aria-label="Fun">fun<span>.</span></div><div class="owner"><strong>Peter Chan</strong><span>Personal shelf / 隨心逛逛</span></div><span class="brand-note">curiosity welcome</span></div>
+<header class="hero">
+<div><p class="eyebrow">Books · Journeys · Discoveries</p><h1>Good books.<br><span class="highlight">Great detours.</span></h1><p class="intro">Reading history. Making memories. A few favourite rabbit holes, shared by Peter.</p></div>
+<svg class="hero-art" viewBox="0 0 210 140" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 104C-2 61 53 32 93 55c40 23 54 59 85 37" stroke="#747964" stroke-width="1.5" stroke-dasharray="4 5"/>
+<g class="sun" stroke="#29302b" stroke-width="1.6"><circle cx="159" cy="34" r="18" fill="#ffda70"/><path d="M159 7V2m0 64v-5m27-27h5m-64 0h5m8-19-4-4m42 42 4 4m-42-4-4 4m42-42 4-4" stroke-linecap="round"/></g>
+<path d="m24 86 48-9 5 30-48 9-5-30Z" fill="#e4dbfa" stroke="#29302b" stroke-width="1.7"/><path d="m72 77 8 5 5 29-8-4m-48 9 7 4 49-9M31 91l27-5m-25 12 20-4" stroke="#29302b" stroke-width="1.5"/>
+<g transform="rotate(-13 105 69)"><path d="m77 65 58-17-16 43-13-18-29-8Z" fill="#fff8eb" stroke="#29302b" stroke-width="1.7" stroke-linejoin="round"/><path d="m106 73 29-25-34 20-24-3m29 8-3 11 9-3" stroke="#29302b" stroke-width="1.4" stroke-linejoin="round"/></g>
+<path d="m151 117 18-6m-8-6 2 17M15 37l4 6 7-2-4 6 4 6-7-2-4 6-1-7-7-2 7-3 1-7Z" stroke="#93604c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="152" cy="32" r="1.5" fill="#29302b"/><circle cx="165" cy="32" r="1.5" fill="#29302b"/><path d="M154 39q5 5 10 0" stroke="#29302b" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+</header>
+<section aria-labelledby="collection-title">
+<div class="collection-bar"><h2 class="collection-label" id="collection-title"><span class="count">02</span>Pick a happy detour</h2><button class="surprise" id="surprise" type="button" hidden><span class="dice" aria-hidden="true">⚄</span>Pick for me</button></div>
+<div class="shelf">
+<a class="card reading" href="tongjian/">
+<div class="card-top"><span class="number">01 /</span><span class="category">Reading room</span><span class="aside">a time machine</span></div>
+<div class="card-body"><div><h2 lang="zh-Hant">資治通鑑</h2><p class="subtitle">Zizhi Tongjian · by Sima Guang</p></div>
+<svg class="card-art" viewBox="0 0 100 100" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g stroke="#29302b" stroke-width="1.7" stroke-linejoin="round"><path d="m13 71 64-4 9 9-64 5-9-10Z" fill="#ff9879"/><path d="m22 81 64-5v8l-64 5-9-10v-8" fill="#fff8eb"/><path d="m17 57 60 3 6 11-60-3-6-11Z" fill="#ffda70"/><path d="m23 68 60 3v7l-60-3-6-11v-7" fill="#fff8eb"/><path d="m30 16 39 5-7 42-39-5 7-42Z" fill="#8cbbae"/><path d="m69 21 7 6-7 43-7-7m-39-5 7 7 39 5M37 29l23 3m-25 4 21 3m-22 5 16 2"/><path d="m57 19-3 18 5-2 4 3 3-18" fill="#ff9879"/><path d="m12 23 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z" fill="#fff8eb"/><path d="m82 47 7-3m-4-3 1 9" stroke-linecap="round"/></g></svg></div>
+<p class="description">Explore Chinese history one volume at a time, from Zhou to Later Zhou.</p>
+<dl class="facts"><div><dt>The collection</dt><dd>294 <span>volumes</span></dd></div><div><dt>History covered</dt><dd class="history-range">403 BCE <span>→ 959 CE</span></dd></div></dl>
+<div class="tags"><span>Full text</span><span lang="zh-Hant">繁體中文</span><span>16 chronicles</span></div>
+<div class="card-foot"><span>Open the reading room</span><span class="arrow" aria-hidden="true">→</span></div>
+</a>
+<a class="card travel" href="penang-trip/">
+<div class="card-top"><span class="number">02 /</span><span class="category">Travel notebook</span><span class="aside">sunshine inside</span></div>
+<div class="card-body"><div><h2>Penang family trip</h2><p class="subtitle" lang="zh-Hant">檳城親子之旅 · Chan Family</p></div>
+<svg class="card-art" viewBox="0 0 100 100" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g stroke="#29302b" stroke-width="1.7" stroke-linejoin="round"><path d="M18 75c18-8 39-8 62-1l7 13H10l8-12Z" fill="#ffda70"/><path d="M55 76c-1-16 2-32 6-44l5 1c-3 15-4 28-1 43" fill="#b9845c"/><path d="M64 34C49 13 29 19 24 35c17-9 29-5 40-1Z" fill="#8cbbae"/><path d="M64 34C51 5 74 4 87 15c-11 0-17 7-23 19Z" fill="#8cbbae"/><path d="M64 34c18-18 31-3 28 10-9-8-17-10-28-10Z" fill="#8cbbae"/><path d="M64 34C39 29 37 49 42 58c3-13 10-19 22-24Z" fill="#8cbbae"/><circle cx="16" cy="18" r="9" fill="#ff9879"/><path d="M15 58v-9l20 1v13m-17-17h12v5" stroke-linecap="round"/><rect x="8" y="55" width="35" height="26" rx="5" fill="#e4dbfa"/><circle cx="25" cy="68" r="7" fill="#fff8eb"/><path d="M14 60h4m25 26 10-3m-6-3 3 8" stroke-linecap="round"/></g></svg></div>
+<p class="description">Beaches, street art and food stops. Our Penang family notebook.</p>
+<dl class="facts"><div><dt>The adventure</dt><dd>6 <span>days /</span> 5 <span>nights</span></dd></div><div><dt>Summer 2026</dt><dd>5–10 <span>August</span></dd></div></dl>
+<div class="tags"><span>Day plans</span><span>Food</span><span>Family</span><span>Hotels</span></div>
+<div class="card-foot"><span>Open the travel notebook</span><span class="arrow" aria-hidden="true">→</span></div>
+</a>
+</div>
+</section>
+<footer><span>Collected by Peter Chan · Open to everyone</span><span class="signoff">For the fun of it.</span></footer>
+</main>
+<script>
+'use strict';
+const surprise = document.getElementById('surprise');
+const detours = ['tongjian/', 'penang-trip/'];
+surprise.hidden = false;
+surprise.addEventListener('click', () => {
+  location.assign(detours[Math.floor(Math.random() * detours.length)]);
+});
+</script>
+</body>
+</html>
