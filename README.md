@@ -1,17 +1,21 @@
 # Fun — Peter’s Personal Shelf
 
-Private source repository for the reading room (`tongjian/`) and travel notebook (`penang-trip/`). No public GitHub Pages deployment and no public-demo analytics.
+Public reading and travel projects, separate from the professional demo lab.
+
+- Website: [peteragility.github.io/fun](https://peteragility.github.io/fun/)
+- Reading: [資治通鑑 · 294 volumes](https://peteragility.github.io/fun/tongjian/)
+- Travel: [Penang family trip](https://peteragility.github.io/fun/penang-trip/)
+
+The repository and GitHub Pages website are public. Visitors do not need to log in. The personal pages do not use the demo lab's analytics.
+
+## Publishing
+
+Edit `index.html`, `tongjian/index.html` or `penang-trip/index.html`, then commit and push to `main`. GitHub Actions runs `node scripts/build.mjs` and deploys only `dist/` to Pages. Repository metadata and scripts are excluded from the website artifact.
 
 ## Local viewing
 
-Run `node scripts/build.mjs`, then `python3 -m http.server 8765 --bind 127.0.0.1 --directory dist`. Open http://127.0.0.1:8765. The server binds to this Mac only.
+Run `node scripts/build.mjs`, then `python3 -m http.server 8765 --bind 127.0.0.1 --directory dist`. Open http://127.0.0.1:8765.
 
-## Privacy
+## Earlier hosting
 
-Keep this repository private and do not add collaborators. A private personal GitHub repository does **not** make a GitHub Pages website private. Any hosted version must enforce owner-only access before serving HTML or assets.
-
-These pages were previously published in the public demo repository. Removing their current public pages does not erase older public Git commits or previously downloaded copies.
-
-## Hosted access
-
-The hosted version is an owner-private ChatGPT Site; sign in with the owning ChatGPT account. Its access policy is managed by the hosting platform, not by client-side passwords. GitHub remains the private source repository; GitHub Pages is not enabled.
+The previously created owner-private ChatGPT Site is a separate snapshot. GitHub Pages is now the public sharing address. `.openai/hosting.json` retains that Site's identifier for future maintenance; it contains no credentials.
