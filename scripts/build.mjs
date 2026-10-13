@@ -9,4 +9,4 @@ for(const name of ['penang-trip','assets']) cpSync(path.join(root,name),path.joi
 execFileSync('python3',[path.join(root,'scripts/build-tongjian.py')],{stdio:'inherit'});
 for(const name of ['reader.css','reader.js']) copyFileSync(path.join(root,'tongjian',name),path.join(root,'dist/tongjian',name));
 copyFileSync(path.join(root,'index.html'),path.join(root,'dist/index.html'));
-console.log('Built Fun, the Penang notebook and the 294-volume reader.');
+console.log('Built Fun, the Penang notebook, and the single story+text Tongjian page with 294 volumes.');

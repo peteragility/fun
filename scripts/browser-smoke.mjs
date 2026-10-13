@@ -15,9 +15,20 @@ await withBrowser(root,async b=>{
       if(url.includes('/volumes/')) {
         assert.ok(await b.evaluate('document.querySelector(".juan p").textContent.length>0'));
         assert.ok(await b.evaluate('document.getElementById("readingStatus").textContent.includes("未能保存")'));
+        assert.equal(await b.evaluate('document.querySelectorAll("main h1 .title-src a").length'),1);
+        assert.equal(await b.evaluate('document.querySelectorAll(".juan .juan-title").length'),0);
+      }
+      if(url==='/tongjian/') {
+        assert.ok(await b.evaluate('document.querySelector(".volume-link").getBoundingClientRect().height<45'),'volume rows stay compact at '+width);
+        assert.equal(await b.evaluate('document.querySelectorAll("section.chapter").length'),16);
+        assert.ok(await b.evaluate('document.querySelectorAll(".insight").length>=15'));
+        assert.equal(await b.evaluate('Array.from(document.querySelectorAll(".spine a")).filter(a=>a.getAttribute("href").startsWith("#ch-")).length'),16);
+        assert.ok(await b.evaluate('!!document.getElementById("volumes")'));
       }
     }
   }
+  await b.navigate('/');
+  assert.equal(await b.evaluate('document.querySelectorAll(".shelf .card").length'),3);
   await b.navigate('/tongjian/');
   assert.equal(await b.evaluate('document.querySelectorAll(".volume-link").length'),294);
   await b.evaluate('const q=document.getElementById("volumeSearch");q.value="唐紀";q.dispatchEvent(new Event("input"))');
