@@ -20,7 +20,7 @@ The reader supports dynasty/volume filtering, previous/next navigation, volume s
 
 The catalogue is a single-line grid per chronicle (four columns on desktop, two on a phone) with a sticky dynasty jump bar, so all 294 volumes stay scannable instead of scrolling through full-height cards. Volume pages show the title once; the Wikisource link sits beside it rather than repeating the heading inside the text panel.
 
-`tongjian/index.html` is one page: the sixteen-chapter retelling, then the full 294-volume catalogue. `tongjian/story.html` holds the story chapters and is inlined by the build, so the prose stays hand-editable while the catalogue stays generated.
+`tongjian/index.html` is one page: a 16-section story edition with TL;DR cards, drop caps, dynasty-coloured chapter bands and a sticky "你喺邊" indicator, then the full 294-volume catalogue beneath it. `tongjian/story.html` holds the story chapters and is inlined by the build; `scripts/inject-tldrs.py` adds the TL;DR cards and drop-cap spans back into `story.html` after hand-edits. `tongjian/story.js` drives the position bar via `IntersectionObserver`.
 
 ## Re-importing the source
 

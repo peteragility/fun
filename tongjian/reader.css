@@ -47,3 +47,215 @@
   .sima blockquote p{font-size:15.5px}
   .insight{font-size:16px}
 }
+
+/* === Fun redesign: chapter typography, TL;DR cards, dynasty colour, sticky indicator === */
+
+/* Each chapter section gets a dynasty colour and TL;DR card */
+.chapter{
+  --dyn: #2e6f6c;
+  --dyn-soft: #d6e6e3;
+  --dyn-ink: #1f4d4a;
+  position: relative;
+  margin: 52px 0 0;
+  padding: 6px 0 0;
+  border-top: 4px solid var(--dyn);
+  scroll-margin-top: 100px;
+}
+.chapter:first-of-type{border-top: 0; margin-top: 30px}
+
+/* Eight-era colour rotation. One selector per chapter id covers all 16. */
+#ch-00, #ch-01{--dyn:#4a5b7d;--dyn-soft:#e0e4ee;--dyn-ink:#384864}
+#ch-02{--dyn:#a85138;--dyn-soft:#ecd8cf;--dyn-ink:#7a3a26}
+#ch-03, #ch-04, #ch-05, #ch-06, #ch-07{--dyn:#2e6f6c;--dyn-soft:#d6e6e3;--dyn-ink:#1f4d4a}
+#ch-08, #ch-09, #ch-10{--dyn:#9b4a2b;--dyn-soft:#ecd7cc;--dyn-ink:#6f341e}
+#ch-11, #ch-12, #ch-13{--dyn:#b08830;--dyn-soft:#f0e3c3;--dyn-ink:#80621a}
+#ch-14, #ch-15{--dyn:#3a4760;--dyn-soft:#d6dbe6;--dyn-ink:#2a3349}
+
+/* Big chapter title with the colour band */
+.chapter h2{
+  margin: 0 -8px 14px;
+  padding: 18px 14px 14px;
+  background: var(--dyn-soft);
+  color: var(--dyn-ink);
+  font-family: "Songti TC","Noto Serif TC",Georgia,serif;
+  font-size: clamp(28px, 4.4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: .01em;
+  font-weight: 800;
+  border-left: 5px solid var(--dyn);
+  border-radius: 0 6px 6px 0;
+}
+.chapter.prologue h2{font-size: clamp(22px, 3.4vw, 34px); padding: 14px 12px}
+.chapter h3{margin: 30px 0 10px; font-size: 19px; color: var(--dyn-ink)}
+
+/* Meta strip (year + volume link) */
+.chapter-meta{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 0 0 6px;
+  padding: 0;
+  font: 11.5px ui-monospace, SFMono-Regular, monospace;
+  letter-spacing: .05em;
+  color: var(--dyn);
+  text-transform: none;
+}
+.chapter-meta::before{
+  content: "";
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--dyn);
+  border-radius: 50%;
+  margin-right: 2px;
+}
+.chapter-meta a{color: var(--dyn); text-decoration: none; border-bottom: 1px dotted var(--dyn)}
+.chapter-meta a:hover{opacity: .7}
+
+/* TL;DR card — three short lines above the body */
+.tldr{
+  margin: 8px 0 22px;
+  padding: 14px 16px 12px;
+  background: #fff;
+  border: 1px solid var(--dyn-soft);
+  border-left: 4px solid var(--dyn);
+  border-radius: 0 8px 8px 0;
+  font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #3a3a32;
+}
+.tldr p{margin: 0; padding: 4px 0}
+.tldr p + p{border-top: 1px dashed #d8d2c0}
+.tldr .tldr-label{
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 6px;
+  background: var(--dyn);
+  color: #fdf6e6;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  vertical-align: 1px;
+}
+
+/* Drop cap on first paragraph after the TL;DR */
+/* Drop cap: the first character of the first body paragraph. Chinese characters
+   may not be matched by ::first-letter, so we wrap the first 1-2 characters in a
+   span at injection time. The styles here match that span. */
+.chapter p.body-p .dc{
+  float: left;
+  font-family: "Songti TC","Noto Serif TC",Georgia,serif;
+  font-size: 4.2em;
+  line-height: .85;
+  font-weight: 700;
+  color: var(--dyn);
+  margin: .04em .12em -.05em 0;
+  padding: 0;
+}
+.chapter p.body-p:first-of-type::first-letter{
+  float: left;
+  font-size: 1em;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Body paragraphs: 標籤 them so the drop-cap selector matches */
+.chapter>p:not([class]), .chapter>p.body-p{font-size: 17px; line-height: 1.95; margin: 15px 0; text-align: justify}
+.chapter>p:not([class]):first-of-type, .chapter>p.body-p:first-of-type{font-size: 18.5px; line-height: 1.9}
+.chapter em{font-style: normal; background: #fbeacb; padding: 1px 4px; border-radius: 3px; color: #5a3a12}
+
+/* Scene break (used by chapters) */
+.scene-break{
+  display: block;
+  text-align: center;
+  letter-spacing: 1.4em;
+  color: var(--dyn);
+  margin: 28px 0 24px;
+  padding-right: 1.4em; /* compensate for the trailing letter-spacing */
+  font-size: 14px;
+  opacity: .75;
+}
+
+/* Inline marginalia (facts/dates) */
+.marg{
+  display: inline-block;
+  background: var(--dyn-soft);
+  color: var(--dyn-ink);
+  padding: 0 6px;
+  border-radius: 3px;
+  font: 12.5px ui-monospace, SFMono-Regular, monospace;
+  white-space: nowrap;
+}
+
+/* Sima block already styled; tighten alignment */
+.sima{margin: 22px 0; padding: 14px 18px; background: #f0e7d4; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0}
+.sima-label{margin: 0 0 6px; font: 11px -apple-system,sans-serif; letter-spacing: .08em; color: var(--accent)}
+.sima blockquote{margin:0; padding:0; border:0}
+.sima blockquote p{margin:0; font-size: 16.5px; line-height: 1.95; color: #3c3a2c}
+
+.insight{margin: 22px 0 0; padding: 14px 18px; background: #e9e2f0; border: 1px solid #cdc0e0; border-radius: 8px; font-size: 16.5px; line-height: 1.9; color: #33304a}
+.insight::before{content: "→ "; color: var(--dyn); font-weight: 700}
+
+/* === Sticky "你喺邊" indicator === */
+.position-bar{
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 22px;
+  padding: 9px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: 13px -apple-system, "PingFang TC", sans-serif;
+  box-shadow: 0 2px 6px #00000010;
+}
+.position-bar .pb-label{color: var(--muted)}
+.position-bar .pb-num{
+  display: inline-grid; place-items: center;
+  min-width: 34px; height: 28px; padding: 0 7px;
+  background: var(--dyn);
+  color: #fdf6e6;
+  border-radius: 14px;
+  font-weight: 700;
+  font: 700 13px ui-monospace, monospace;
+}
+.position-bar .pb-title{
+  font-weight: 600; color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  flex: 1; min-width: 0;
+}
+.position-bar .pb-jump{
+  background: transparent; border: 1px solid var(--line);
+  padding: 4px 10px; border-radius: 5px; font-size: 12px;
+  color: var(--dyn); cursor: pointer;
+}
+.position-bar .pb-jump:hover{background: var(--dyn); color: #fdf6e6}
+
+/* The chapter currently being read gets highlighted via [data-current="true"] */
+.chapter[data-current="true"] h2{
+  box-shadow: -5px 0 0 var(--dyn), 0 -2px 0 var(--dyn);
+}
+.chapter[data-current="true"]{
+  scroll-margin-top: 100px;
+}
+
+/* === Mobile tuning for the fun redesign === */
+@media (max-width: 560px) {
+  .chapter{margin-top: 36px; border-top-width: 3px}
+  .chapter h2{padding: 14px 10px 12px; font-size: 23px; border-left-width: 4px}
+  .chapter.prologue h2{font-size: 19px}
+  .chapter>p:not([class]){font-size: 16.5px; line-height: 1.9}
+  .chapter>p:not([class]):first-of-type{font-size: 17px}
+  .chapter p.body-p:first-of-type::first-letter,
+  .chapter p.body-p:first-of-type:first-letter{font-size: 3.2em}
+  .tldr{font-size: 13.5px; padding: 12px 12px 10px}
+  .position-bar{padding: 7px 10px; gap: 7px}
+  .position-bar .pb-title{font-size: 13px}
+  .sima blockquote p{font-size: 15.5px}
+  .insight{font-size: 15.5px}
+}

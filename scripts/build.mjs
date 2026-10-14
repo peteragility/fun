@@ -7,6 +7,6 @@ rmSync(path.join(root,'dist'),{recursive:true,force:true});
 mkdirSync(path.join(root,'dist'),{recursive:true});
 for(const name of ['penang-trip','assets']) cpSync(path.join(root,name),path.join(root,'dist',name),{recursive:true});
 execFileSync('python3',[path.join(root,'scripts/build-tongjian.py')],{stdio:'inherit'});
-for(const name of ['reader.css','reader.js']) copyFileSync(path.join(root,'tongjian',name),path.join(root,'dist/tongjian',name));
+for(const name of ['reader.css','reader.js','story.js']) copyFileSync(path.join(root,'tongjian',name),path.join(root,'dist/tongjian',name));
 copyFileSync(path.join(root,'index.html'),path.join(root,'dist/index.html'));
 console.log('Built Fun, the Penang notebook, and the single story+text Tongjian page with 294 volumes.');

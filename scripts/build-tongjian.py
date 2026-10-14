@@ -130,6 +130,12 @@ def generate(destination):
         "資治通鑑 · 故事與 294 卷全文",
         "《資治通鑑》故事版與 294 卷全文：十六個時刻用故事講一次，再附全書原卷，可搜尋、可跳卷。",
         body, "", ""))
+    page = destination / "index.html"
+    page.write_text(page.read_text(encoding="utf-8").replace(
+        "<script src=\"reader.js\" defer></script>",
+        "<script src=\"reader.js\" defer></script>\n<script src=\"story.js\" defer></script>",
+        1,
+    ), encoding="utf-8")
     print(f"Built 294 volume pages and the single story+text page; removed {cleaned} imported navigation footers.")
 
 
