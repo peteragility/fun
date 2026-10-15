@@ -117,8 +117,9 @@ def generate(destination):
     body = f'''<header class="reading-header"><a href="../">← Fun 首頁</a><span>Peter’s reading room / 資治通鑑</span></header>
 <main class="shelf-page">
 <div class="book-head"><p class="eyebrow">前 403 年 – 959 年 · 294 卷 · 16 紀</p><h1>資治通鑑</h1>
-<p class="lead">司馬光用十九年寫成嘅一本失敗百科。上半部係十六個時刻嘅故事，下半部係全書 294 卷原文。</p>
-<p class="story-note">故事部分嘅史實、年份、人名同引文，一律鎖死喺《資治通鑑》原文入面，引文逐字照抄。唔想啃文言文，由故事入手就得。</p></div>
+<p class="lead">司馬光用十九年寫成嘅一本失敗百科。預設用故事模式讀十六個時刻；想睇文言文，一按切換原文模式，全書 294 卷即刻喺你面前。</p>
+<p class="story-note">故事部分嘅史實、年份、人名同引文，一律鎖死喺《資治通鑑》原文入面，引文逐字照抄。唔想啃文言文，由故事入手就得。</p>
+<div class="mode-switch" role="group" aria-label="閱讀模式"><button id="modeStory" class="active" type="button" aria-pressed="true">故事模式</button><button id="modeRaw" type="button" aria-pressed="false">原文模式</button></div></div>
 <nav class="spine" aria-label="全頁導覽"><span class="spine-label">故事</span>{spine}<span class="spine-label">全書</span>{jump}<a href="#volumes">卷目錄</a></nav>
 <div class="part" id="story"><h2 class="part-title"><span class="seal">壹</span>故事 · 十六個時刻</h2>{story}</div>
 <div class="part" id="volumes"><h2 class="part-title"><span class="seal">貳</span>全書 · 294 卷</h2>

@@ -259,3 +259,14 @@
   .sima blockquote p{font-size: 15.5px}
   .insight{font-size: 15.5px}
 }
+
+/* === Story / raw mode switch === */
+.mode-switch{display:inline-flex;margin:16px 0 0;border:1.5px solid #34382c;border-radius:9px;overflow:hidden;font:13px -apple-system,"PingFang TC",sans-serif;box-shadow:2px 2px 0 #34382c2e}
+.mode-switch button{min-height:38px;padding:8px 18px;border:0;border-radius:0;background:var(--panel);color:var(--muted);font-weight:700;cursor:pointer}
+.mode-switch button+button{border-left:1.5px solid #34382c}
+.mode-switch button.active{background:var(--accent);color:#fdf6e6}
+.mode-switch button:focus-visible{outline:3px solid #7652a0;outline-offset:-3px}
+/* Spine links only ever point at what the current mode can show. */
+body[data-mode="story"] .spine a[href^="#sec-"],body[data-mode="story"] .spine .spine-label:last-of-type,body[data-mode="story"] .spine a[href="#volumes"]{display:none}
+body[data-mode="raw"] .spine a[href^="#ch-"],body[data-mode="raw"] .spine .spine-label:first-of-type{display:none}
+@media(max-width:560px){.mode-switch{width:100%}.mode-switch button{flex:1}}

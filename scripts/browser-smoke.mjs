@@ -33,9 +33,15 @@ await withBrowser(root,async b=>{
     }
   }
   await b.navigate('/');
-  assert.equal(await b.evaluate('document.querySelectorAll(".shelf .card").length'),3);
+  assert.equal(await b.evaluate('document.querySelectorAll(".shelf .card").length'),2);
   await b.navigate('/tongjian/');
+  // Story mode is the default; the raw catalogue is one click away.
+  assert.equal(await b.evaluate('document.getElementById("story").hidden'),false,'story shows by default');
+  assert.equal(await b.evaluate('document.getElementById("volumes").hidden'),true,'volumes hidden by default');
   assert.equal(await b.evaluate('document.querySelectorAll(".volume-link").length'),294);
+  await b.evaluate('document.getElementById("modeRaw").click()');
+  assert.equal(await b.evaluate('document.getElementById("story").hidden'),true,'raw mode hides the story');
+  assert.equal(await b.evaluate('document.getElementById("volumes").hidden'),false,'raw mode shows the catalogue');
   await b.evaluate('const q=document.getElementById("volumeSearch");q.value="唐紀";q.dispatchEvent(new Event("input"))');
   assert.equal(await b.evaluate('document.querySelectorAll(".volume-link:not([hidden])").length'),81);
   await b.navigate('/tongjian/volumes/185.html');
