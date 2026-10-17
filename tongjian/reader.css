@@ -63,13 +63,15 @@
 }
 .chapter:first-of-type{border-top: 0; margin-top: 30px}
 
-/* Eight-era colour rotation. One selector per chapter id covers all 16. */
+/* Era colour rotation across the 22 chapters. */
 #ch-00, #ch-01{--dyn:#4a5b7d;--dyn-soft:#e0e4ee;--dyn-ink:#384864}
 #ch-02{--dyn:#a85138;--dyn-soft:#ecd8cf;--dyn-ink:#7a3a26}
-#ch-03, #ch-04, #ch-05, #ch-06, #ch-07{--dyn:#2e6f6c;--dyn-soft:#d6e6e3;--dyn-ink:#1f4d4a}
-#ch-08, #ch-09, #ch-10{--dyn:#9b4a2b;--dyn-soft:#ecd7cc;--dyn-ink:#6f341e}
-#ch-11, #ch-12, #ch-13{--dyn:#b08830;--dyn-soft:#f0e3c3;--dyn-ink:#80621a}
-#ch-14, #ch-15{--dyn:#3a4760;--dyn-soft:#d6dbe6;--dyn-ink:#2a3349}
+#ch-03, #ch-04, #ch-05, #ch-06, #ch-07, #ch-08, #ch-09, #ch-10{--dyn:#2e6f6c;--dyn-soft:#d6e6e3;--dyn-ink:#1f4d4a}
+#ch-11, #ch-12, #ch-13{--dyn:#9b4a2b;--dyn-soft:#ecd7cc;--dyn-ink:#6f341e}
+#ch-14, #ch-15{--dyn:#5e7044;--dyn-soft:#e2e7d3;--dyn-ink:#43512f}
+#ch-16{--dyn:#7d4e6a;--dyn-soft:#ecd8e3;--dyn-ink:#5c3a4e}
+#ch-17, #ch-18, #ch-19{--dyn:#b08830;--dyn-soft:#f0e3c3;--dyn-ink:#80621a}
+#ch-20, #ch-21{--dyn:#3a4760;--dyn-soft:#d6dbe6;--dyn-ink:#2a3349}
 
 /* Big chapter title with the colour band */
 .chapter h2{
@@ -270,3 +272,8 @@
 body[data-mode="story"] .spine a[href^="#sec-"],body[data-mode="story"] .spine .spine-label:last-of-type,body[data-mode="story"] .spine a[href="#volumes"]{display:none}
 body[data-mode="raw"] .spine a[href^="#ch-"],body[data-mode="raw"] .spine .spine-label:first-of-type{display:none}
 @media(max-width:560px){.mode-switch{width:100%}.mode-switch button{flex:1}}
+
+/* === Reading time + resume pill === */
+.chapter-meta .read-time{margin-left:auto;padding:1px 8px;border:1px solid var(--dyn);border-radius:999px;color:var(--dyn);font-weight:600;letter-spacing:.03em}
+.resume-story{display:inline-flex;align-items:center;gap:6px;margin:12px 0 0;padding:7px 14px;background:#e4dbfa;border:1.5px solid #7652a0;border-radius:8px;font:13px -apple-system,"PingFang TC",sans-serif;font-weight:700;color:#4a3a6a;text-decoration:none}
+.resume-story:hover{background:#d8ccf5}

@@ -28,6 +28,36 @@
   }
   const chapters = Array.from(document.querySelectorAll('section.chapter'));
   if (!chapters.length) return;
+
+  // Reading time badge: ~450 characters a minute is a comfortable clip for this prose.
+  chapters.forEach((chapter) => {
+    const meta = chapter.querySelector('.chapter-meta');
+    if (!meta || meta.querySelector('.read-time')) return;
+    const chars = (chapter.textContent.match(/[\u4e00-\u9fff]/g) || []).length;
+    const minutes = Math.max(1, Math.round(chars / 450));
+    const badge = document.createElement('span');
+    badge.className = 'read-time';
+    badge.textContent = '\u7D04 ' + minutes + ' \u5206\u9418';
+    meta.appendChild(badge);
+  });
+
+  // Reading progress: remember the chapter you are in, offer to resume on return.
+  const CHAPTER_KEY = 'fun-tongjian-chapter';
+  const readChapter = () => { try { return localStorage.getItem(CHAPTER_KEY); } catch { return null; } };
+  const saveChapter = id => { try { localStorage.setItem(CHAPTER_KEY, id); } catch { /* no persistence */ } };
+  const resumeId = readChapter();
+  const resumeChapter = chapters.find(c => c.id === resumeId && c.id !== chapters[0].id);
+  if (resumeChapter) {
+    const head = document.querySelector('.book-head');
+    if (head) {
+      const pill = document.createElement('a');
+      pill.className = 'resume-story';
+      pill.href = '#' + resumeChapter.id;
+      pill.textContent = '\u7E7C\u7E8C\u8B80 ' + resumeChapter.id.replace(/^ch-/, '') + ' \u00B7 ' +
+        ((resumeChapter.querySelector('h2') || {}).textContent || '').slice(0, 18);
+      head.appendChild(pill);
+    }
+  }
   const bar = document.createElement('div');
   bar.className = 'position-bar';
   bar.innerHTML =
@@ -46,6 +76,7 @@
     const id = chapter.id;
     num.textContent = id.replace(/^ch-/, '').padStart(2, '0');
     title.textContent = (chapter.querySelector('h2') || {}).textContent || '';
+    saveChapter(id);
   };
   chapters[0].setAttribute('data-current', 'true');
   update(chapters[0]);

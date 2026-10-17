@@ -108,8 +108,8 @@ def generate(destination):
     jump = "".join(f'<a href="#sec-{n}">{html.escape(name)}</a>' for n, name in sections)
     story = (ROOT / "tongjian/story.html").read_text(encoding="utf-8").strip()
     markers = re.findall(r'<p class="chapter-meta">([\s\S]*?)</p>\s*<h2>([\s\S]*?)</h2>', story)
-    if len(markers) != 16:
-        raise ValueError(f"The story fragment should hold 16 chapters, found {len(markers)}")
+    if len(markers) != 22:
+        raise ValueError(f"The story fragment should hold 22 chapters, found {len(markers)}")
     spine = "".join(
         f'<a href="#ch-{index:02d}">{html.escape(plain(title))}</a>'
         for index, (_year, title) in enumerate(markers)

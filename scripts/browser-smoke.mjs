@@ -20,13 +20,13 @@ await withBrowser(root,async b=>{
       }
       if(url==='/tongjian/') {
         assert.ok(await b.evaluate('document.querySelector(".volume-link").getBoundingClientRect().height<45'),'volume rows stay compact at '+width);
-        assert.equal(await b.evaluate('document.querySelectorAll("section.chapter").length'),16);
-        assert.ok(await b.evaluate('document.querySelectorAll(".insight").length>=15'));
-        assert.equal(await b.evaluate('Array.from(document.querySelectorAll(".spine a")).filter(a=>a.getAttribute("href").startsWith("#ch-")).length'),16);
+        assert.equal(await b.evaluate('document.querySelectorAll("section.chapter").length'),22);
+        assert.ok(await b.evaluate('document.querySelectorAll(".insight").length>=21'));
+        assert.equal(await b.evaluate('Array.from(document.querySelectorAll(".spine a")).filter(a=>a.getAttribute("href").startsWith("#ch-")).length'),22);
         assert.ok(await b.evaluate('!!document.getElementById("volumes")'));
         // Fun-redesign checks: TL;DR card, drop cap, sticky position bar.
-        assert.equal(await b.evaluate('document.querySelectorAll(".tldr").length'),16);
-        assert.equal(await b.evaluate('document.querySelectorAll(".chapter p.body-p .dc").length'),16);
+        assert.equal(await b.evaluate('document.querySelectorAll(".tldr").length'),22);
+        assert.equal(await b.evaluate('document.querySelectorAll(".chapter p.body-p .dc").length'),22);
         assert.equal(await b.evaluate('new Set([...document.querySelectorAll(".chapter")].map(c=>getComputedStyle(c).getPropertyValue("--dyn"))).size>=3'),true);
         assert.equal(await b.evaluate('!!document.querySelector(".position-bar")'),true);
       }
